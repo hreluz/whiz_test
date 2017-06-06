@@ -1,5 +1,7 @@
 <?php
 
+use App\Post;
+
 abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
     /**
@@ -21,5 +23,10 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
         $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
         return $app;
+    }
+    
+    public function createPost(array $attributes = [])
+    {
+        return factory(Post::class)->create($attributes);   
     }
 }
