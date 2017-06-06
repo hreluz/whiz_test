@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+Route::group(['middleware' => ['verify-apikey']], function () {
+	Route::post('check', function(){ return ['result' => true ] ; });
+});
