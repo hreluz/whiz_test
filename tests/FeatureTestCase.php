@@ -5,4 +5,9 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class FeatureTestCase extends TestCase
 {
 	use DatabaseTransactions;
+
+	public function getKey()
+	{
+		return env('API_KEY');
+	}
 }

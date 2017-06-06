@@ -14,5 +14,9 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['middleware' => ['verify-apikey']], function () {
-	Route::post('check', function(){ return ['result' => true ] ; });
+	Route::post('check', function(){ return ['result' => true] ; });
+
+
+	//Posts
+	Route::post('posts/create', ['uses' => 'PostsController@create', 'as' => 'api.posts.create' ]);
 });
